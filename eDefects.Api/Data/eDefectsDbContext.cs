@@ -8,14 +8,15 @@ using System.Threading.Tasks;
 
 namespace eDefects.Api.Data
 {
-    public class eDefectsDbContext : DbContext
+    public class EDefectsDbContext : DbContext
     {
-        public eDefectsDbContext(DbContextOptions<eDefectsDbContext> options) : base(options)
+        public EDefectsDbContext(DbContextOptions<EDefectsDbContext> options) : base(options)
         {
 
         }
  
          public DbSet<Defect> Defects { get; set; }
-        
+         public DbSet<Team> Teams { get; set; }
+
     }
 }
