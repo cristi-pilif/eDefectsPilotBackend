@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using eDefectsPilotBackend.Data;
-using eDefectsPilotBackend.Models;
+using eDefects.Api.Data;
+using eDefects.Api.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace eDefectsPilotBackend.Controllers
+namespace eDefects.Api.Controllers
 {
-   [Route("api/[controller]")]
-   // [ApiController]
+    [Route("api/[controller]")]
+    [ApiController]
     public class DefectsController : ControllerBase
     {
 

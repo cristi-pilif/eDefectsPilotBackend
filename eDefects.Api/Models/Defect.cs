@@ -4,24 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eDefectsPilotBackend.Models
+namespace eDefects.Api.Models
 {
     public class Defect
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
-        //   asta se incarca automat dar nu stiu inca de unde 
         //  public string FLCode { get; set; }; 
 
         //nu stiu ce e asta
         //public bool SAPNotification { get; set; } 
 
-        public String Description { get; set; }
+        public string Description { get; set; }
 
         //nu stiu ce e asta
         //public bool RepeatDefect { get; set; }
 
-        //se autocompleteaza cu data de azi, e pus ca optional in eDefects dar din front e obligatoriu
+        
         public DateTime DateFound { get; set; }
 
         //la fel ca mai sus
@@ -37,15 +36,25 @@ namespace eDefectsPilotBackend.Models
 
         public DateTime DueDate { get; set; }
 
-        public string Team { get; set; } // aici o sa trebuiasca sa se incarce echipele
+        public Guid? TeamID { get; set; } //legatura cu echipa
 
-       // public DefectType DefectType { get; set; }
+        public Guid? DepartmentID { get; set; } //legatura cu departament 
 
-       // public DefectComponent DefectComponent { get; set; }
+        public Guid? ProdLineID { get; set; } //legatura cu linia de productie
 
-       // public Priority Priority { get; set; }
+        public Guid? PUGroupID { get; set; } //legatura cu grupul de productie
 
-       // public FindSource FindSource { get; set; }
+        public Guid? ProdUnitID { get; set; } 
+
+        //TO DO: Atasament poza/multiple poze
+
+        public Guid? DefectLineID { get; set; }
+
+        public Guid? DefectComponentID { get; set; }
+
+        public Guid? PriorityID { get; set; } 
+
+        public Guid? FindSourceID { get; set; } 
 
         //public string Task { get; set; } // nu stiu ce e asta, e un camp Task in eDefects
 
