@@ -17,9 +17,9 @@ namespace eDefects.Api.Controllers
     public class DefectsController : ControllerBase
     {
 
-        private readonly eDefectsDbContext _context;
+        private readonly EDefectsDbContext _context;
 
-        public DefectsController(eDefectsDbContext context)
+        public DefectsController(EDefectsDbContext context)
         {
             _context = context;
         }
@@ -30,6 +30,21 @@ namespace eDefects.Api.Controllers
         {
             var defects = await _context.Defects.ToListAsync();
             return Ok(defects);
+        }
+
+        [HttpGet("db-health")]
+        public async Task<IActionResult> CheckDatabaseConnection()
+        {
+            try
+            {
+                // Try to connect and query the database
+                await _context.Database.ExecuteSqlRawAsync("SELECT 1");
+                return Ok("Database connection is working.");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Database connection failed: {ex.Message}");
+            }
         }
 
     }
